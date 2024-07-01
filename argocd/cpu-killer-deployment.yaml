@@ -24,3 +24,8 @@ spec:
           image: 'xavelo/cpu-killer:latest'
           ports:
             - containerPort: 80
+          resources:
+            requests:
+              cpu: 250m # Set CPU request to 250 millicpus (0.25 CPU)
+            limits:
+              cpu: 500m
