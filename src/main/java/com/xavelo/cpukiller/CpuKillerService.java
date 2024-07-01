@@ -18,14 +18,14 @@ public class CpuKillerService {
 
     public void kill(int numThreads) throws InterruptedException {
 
-        logger.info("killing cpu with %d threads", numThreads);
+        logger.info("killing cpu with {} threads", numThreads);
         
         LongAdder counter = new LongAdder();
 
         List<CalculationThread> runningCalcs = new ArrayList<>();
         List<Thread> runningThreads = new ArrayList<>();
 
-        logger.info("Starting %d threads", numThreads);
+        logger.info("Starting {} threads", numThreads);
 
         for (int i = 0; i < numThreads; i++) {
             CalculationThread r = new CalculationThread(counter);

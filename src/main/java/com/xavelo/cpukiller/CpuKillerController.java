@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -22,9 +22,9 @@ public class CpuKillerController {
         return "poooooong";
     }
 
-    @GetMapping("/kill")
-    public String kill(@RequestParam String threads) {
-        logger.info("kill received with %s threads", threads);
+    @GetMapping("/kill/{threads}")
+    public String kill(@PathVariable String threads) {
+        logger.info("kill received with {} threads", threads);
         try {
           service.kill(Integer.parseInt(threads));
         }
