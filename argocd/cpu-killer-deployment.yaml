@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-killer-deployment
+  annotations:
+    commitID: ""
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cpu-killer
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: cpu-killer
+    spec:
+      containers:
+        - name: cpu-killer
+          image: 'xavelo/cpu-killer:latest'
+          ports:
+            - containerPort: 80
