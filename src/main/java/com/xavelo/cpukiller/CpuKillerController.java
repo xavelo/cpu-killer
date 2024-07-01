@@ -22,11 +22,11 @@ public class CpuKillerController {
         return "poooooong";
     }
 
-    @GetMapping("/kill/")
-    public String kill(@RequestParam int threads) {
+    @GetMapping("/kill")
+    public String kill(@RequestParam String threads) {
         logger.info("kill received with %s threads", threads);
         try {
-          service.kill(threads);
+          service.kill(Integer.parseInt(threads));
         }
         catch(InterruptedException ie) {
             logger.error("InterruptedException: ", ie);
