@@ -77,13 +77,14 @@ public class CpuKillerService {
 
         @Override
         public void run() {
-            logger.info("running calculation thread");
+            logger.info("-> running calculation thread");
             while (! this.stopped) {
                 double r = this.rng.nextFloat();
                 double v = Math.sin(Math.cos(Math.sin(Math.cos(r))));
                 this.store *= v;
                 this.calculationsPerformed.add(1);
-            }            
+            }     
+            logger.info("<- calculation thread finished");       
         }
     }
 
