@@ -1,4 +1,4 @@
-package com.xavelo.kafkaproducerk3s;
+package com.xavelo.cpukiller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
