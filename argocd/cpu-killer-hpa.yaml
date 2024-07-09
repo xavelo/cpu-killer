@@ -7,12 +7,12 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: cpu-killer-deployment
-  minReplicas: 2
-  maxReplicas: 10
+  minReplicas: 1
+  maxReplicas: 1
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 80
+          averageUtilization: 99
